@@ -1,0 +1,47 @@
+
+
+
+/* header section */
+
+header#header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header #highScores{
+    color: lightblue;
+}
+
+header #time {
+    position: relative;
+    right: 20px;
+}
+
+
+/* form section*/
+
+#keepMe{
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+
+form#hide-form{
+    text-align: center;
+    margin: 0 auto;
+    visibility: hidden;
+}
