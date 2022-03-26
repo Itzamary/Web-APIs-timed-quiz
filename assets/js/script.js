@@ -21,6 +21,10 @@ var questionNum = 0;
 
 var formEl = document.getElementById("hide-form")
 
+var telMe = document.createElement("p");
+telMe.id ="answer";
+
+asnwer = []
 
 questions.id = "questions";
 btnOne.id = "btn1";
@@ -36,7 +40,9 @@ var questionArray = [{
     answerTwo:"booleans",
     answerThree: "alerts",
     answerFour:"numbers",
-    answer: this.answerThree
+    answer: function(){
+        return this.answerThree;
+    }
 },
 {
     question:"The condition in an if / else statement id enclosed with _____.",
@@ -44,7 +50,9 @@ var questionArray = [{
     answerTwo: "curley braces",
     answerThree: "parenthesis",
     answerFour: "square brackets",
-    answer: this.answerOne
+    answer: function(){
+        return this.answerThree;
+    }
 },
 {
     question: "Arrays in JavaScript can be used to store _____.",
@@ -52,7 +60,9 @@ var questionArray = [{
     answerTwo: "other arrays",
     answerThree: "boolians",
     answerFour: "all of the above",
-    answer: this.answerFour
+    answer: function(){
+        return this.answerFour;
+    }
 }];
 
 
@@ -69,12 +79,7 @@ function countValue(){
 
 
 // loop through array of object questions
-function createEl(event){
-
-    event.preventDefault();
-
-    
-    
+function createEl(){
 
     console.log(questionNum);
     
@@ -84,7 +89,11 @@ function createEl(event){
      btnTwo.innerText = questionArray[questionNum].answerTwo;
      btnThree.innerText = questionArray[questionNum].answerThree;
      btnFour.innerText = questionArray[questionNum].answerFour;
-     
+
+     btnOne.onclick = checkAns;
+     btnTwo.onclick = checkAns;
+     btnThree.onclick = checkAns;
+     btnFour.onclick = checkAns;
      
      section.appendChild(div);
      div.appendChild(questions);
@@ -93,28 +102,36 @@ function createEl(event){
      div.appendChild(btnThree);
      div.appendChild(btnFour);
 
-     questionNum++;
-
-     if (event.target === question.answer){
-         console.log("You are wrong")
-     }
-
-
 }
+
+var checkAns = function (event) {
+    console.log(event.target.textContent);
+    console.log(questionArray[questionNum].answerThree);
+    if (event.target.textContent === questionArray[questionNum].answer()){
+        console.log("correct");
+        
+
+    } else {
+        console.log("incorrect");
+        timer -=10;
+    }
+    questionNum++;
+    createEl();
+}
+
+
 
 //start game on click
 
 var startGame= function(event){
     event.preventDefault();
     formDiv.style.display = "none";
-
-
     
    setInterval(countValue,1000);
 
-
+   createEl();
 }
 
-section.addEventListener("click", createEl);
+
 strtButton.addEventListener("click", startGame);
 
