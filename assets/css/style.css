@@ -45,3 +45,7 @@ form#hide-form{
     margin: 0 auto;
     visibility: hidden;
 }
+h2#tellMe{
+    margin: 0 auto;
+    text-align: center;
+}
