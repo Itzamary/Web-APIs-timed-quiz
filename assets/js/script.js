@@ -127,10 +127,6 @@ const myInterval = () => {
     
 };
 
-// const stopInterval = () {
-//     if (timer)
-// }
-
 //start game on click
 var startGame= function(event){
     event.preventDefault();
