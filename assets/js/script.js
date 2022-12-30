@@ -161,10 +161,9 @@ function countValue(){
 
 // loop through array of object questions
 function createEl(){
-
     console.log(questionNum);
     
-
+    tellMe.innerHTML = ""
      questions.innerText = questionArray[questionNum].question;
      btnOne.innerText = questionArray[questionNum].answerOne;
      btnTwo.innerText = questionArray[questionNum].answerTwo;
@@ -195,11 +194,12 @@ var checkAns = function (event) {
         tellMe.innerText = "Correct";
     } else {
         console.log("incorrect");
-        timer -=10;
+        timer -=5;
         tellMe.innerText = "Wrong!!!";
     }
     questionNum++;
-    createEl();
+    setTimeout(createEl, 1000);
+    //createEl();
 }
 
 const myInterval = () => {
