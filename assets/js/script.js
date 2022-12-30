@@ -2,7 +2,8 @@
 var formDiv = document.querySelector("#quizform");
 var strtButton = document.querySelector("#startquiz")
 var timeEl = document.getElementById("time");
-var timer = 30;
+let timer = 30;
+let intervalId;
 
 var div = document.createElement("div");
 div.id = "newQuestion";
@@ -65,15 +66,15 @@ var questionArray = [{
     }
 }];
 
-
 // count value function
 function countValue(){
-    timer--;
-    timeEl.innerText = "Time: "+timer;
-    if(timer <= 0){
-        clearInterval(timer)
-        
+    timeEl.innerText = "Time: " + timer;
+
+    if (timer <= 0) {
+        clearInterval(intervalId);
     }
+
+    timer--;
 };
 
 
@@ -121,17 +122,32 @@ var checkAns = function (event) {
     createEl();
 }
 
+const myInterval = () => {
+    intervalId =  setInterval(countValue, 1000);
+    
+};
+
+// const stopInterval = () {
+//     if (timer)
+// }
 
 //start game on click
 var startGame= function(event){
     event.preventDefault();
     formDiv.style.display = "none";
     
-    setInterval(countValue, 1000);
-   
+
+   myInterval();
+   console.log(intervalId)
+
+
+   if (timer == 0) {
+    clearInterval(intervalId);
+   }
 
    createEl();
 }
+
 
 // event listener for parent click.
 strtButton.addEventListener("click", startGame);
