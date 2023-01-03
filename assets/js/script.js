@@ -2,7 +2,7 @@
 var formDiv = document.querySelector("#quizform");
 var strtButton = document.querySelector("#startquiz")
 var timeEl = document.getElementById("time");
-let timer = 120;
+let timer = 30;
 let intervalId;
 let scoreObj = {score: 0};
 
@@ -22,7 +22,7 @@ var btnFour = document.createElement("button");
 var questionNum = 0;
 
 // var for id in documnets
-var formEl = document.getElementById("hide-form")
+var formEl = document.querySelector("#hide-form")
 var tellMe = document.getElementById("tellMe");
 
 
@@ -153,6 +153,7 @@ function countValue(){
 
     if (timer <= 0) {
         clearInterval(intervalId);
+        endGame()
     }
 
     timer--;
@@ -222,12 +223,17 @@ var startGame= function(event){
    myInterval();
    console.log(intervalId)
 
-
-   if (timer == 0) {
-    clearInterval(intervalId);
-   }
-
    createEl();
+}
+
+var endGame = function () {
+
+   
+        saveScore();
+        section.style.display = 'none';
+        formEl.style.visibility ='visible';
+
+    
 }
 
 
