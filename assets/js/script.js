@@ -4,6 +4,7 @@ var strtButton = document.querySelector("#startquiz")
 var timeEl = document.getElementById("time");
 let timer = 120;
 let intervalId;
+let scoreObj = {score: 0};
 
 var div = document.createElement("div");
 div.id = "newQuestion";
@@ -191,6 +192,7 @@ var checkAns = function (event) {
     console.log(questionArray[questionNum].answerThree);
     if (event.target.textContent === questionArray[questionNum].answer()){
         console.log("correct");
+        scoreObj.score += 13;
         tellMe.innerText = "Correct";
     } else {
         console.log("incorrect");
@@ -206,6 +208,10 @@ const myInterval = () => {
     intervalId =  setInterval(countValue, 1000);
     
 };
+
+const saveScore = function() {
+    localStorage.setItem('scoreObj', JSON.stringify(scoreObj))
+}
 
 //start game on click
 var startGame= function(event){
