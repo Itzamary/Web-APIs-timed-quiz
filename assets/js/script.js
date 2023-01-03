@@ -1,10 +1,15 @@
 // find id of html elements.
 var formDiv = document.querySelector("#quizform");
 var strtButton = document.querySelector("#startquiz")
+var submitName = document.querySelector('#submit-name');
 var timeEl = document.getElementById("time");
 let timer = 30;
 let intervalId;
-let scoreObj = {score: 0};
+let scoreObj = {
+    score: 0,
+    user: ''
+};
+const scoreParagraph = document.querySelector('#score');
 
 var div = document.createElement("div");
 div.id = "newQuestion";
@@ -221,21 +226,24 @@ var startGame= function(event){
     
 
    myInterval();
-   console.log(intervalId)
 
    createEl();
 }
 
 var endGame = function () {
 
-   
-        saveScore();
         section.style.display = 'none';
+        scoreParagraph.innerText = `Your final score is: ${scoreObj.score}`;
         formEl.style.visibility ='visible';
 
     
 }
 
+submitName.onclick = function() {
+    const user = document.getElementById('user-initial').value;
+    scoreObj.user = user
+    saveScore();
+}
 
 // event listener for parent click.
 strtButton.addEventListener("click", startGame);
