@@ -3,6 +3,9 @@
 ## Description
     This is a simple front end development themed quiz. The test is timer based and due to productivity its only 30 seconds long. The application will notify the user if the answered questions are correct, if not the user will have 5 seconds deducted from the timer. When the timer is finished the points will be calculated and saved to local storage. The score page keeps track of all the scores.
 
+## Instructions
+    Download the repository and open it using Visual Studio Code. Open the HTML page on the Chrome Browser and begin the test when your ready.
+
 ## Built with
     * HTML
     * CSS
