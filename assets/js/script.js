@@ -5,6 +5,7 @@ var submitName = document.querySelector('#submit-name');
 var timeEl = document.getElementById("time");
 let timer = 30;
 let intervalId;
+let scoresArr = [];
 let scoreObj = {
     score: 0,
     user: ''
@@ -210,13 +211,23 @@ var checkAns = function (event) {
     //createEl();
 }
 
+// start interval for timer
 const myInterval = () => {
     intervalId =  setInterval(countValue, 1000);
     
 };
 
+// save the score object to local storage
 const saveScore = function() {
-    localStorage.setItem('scoreObj', JSON.stringify(scoreObj))
+    scoresArr.push(scoreObj);
+    localStorage.setItem('scoreObj', JSON.stringify(scoresArr))
+}
+
+const loadScore = function() {
+    let scoreArray = localStorage.getItem('scoreObj');
+    scoreArray = JSON.parse(scoreArray);
+    console.log(scoreArray);
+    scoresArr.push(scoreArray)
 }
 
 //start game on click
@@ -230,6 +241,7 @@ var startGame= function(event){
    createEl();
 }
 
+// end the game.
 var endGame = function () {
 
         section.style.display = 'none';
@@ -239,6 +251,7 @@ var endGame = function () {
     
 }
 
+// form submition
 submitName.onclick = function() {
     const user = document.getElementById('user-initial').value;
     scoreObj.user = user
@@ -248,3 +261,4 @@ submitName.onclick = function() {
 // event listener for parent click.
 strtButton.addEventListener("click", startGame);
 
+loadScore();

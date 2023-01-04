@@ -42,13 +42,9 @@ const loadScore = function (){
     // parse data. 
     scoreObj = JSON.parse(scoreObj);
 
-    // create array and push object into it.
-    scoreObjArray = [];
-    scoreObjArray.push(scoreObj);
-
     // loop through the array and call the create element function with array objects.
-    for (let i = 0; i < scoreObjArray.length; i++) {
-        createElement(scoreObjArray[i]);
+    for (let i = 0; i < scoreObj.length; i++) {
+        createElement(scoreObj[i]);
     }
 };
 
