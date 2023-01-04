@@ -220,6 +220,7 @@ const myInterval = () => {
 // save the score object to local storage
 const saveScore = function() {
     scoresArr.push(scoreObj);
+        console.log(scoreObj, 'scoresObject')
     localStorage.setItem('scoreObj', JSON.stringify(scoresArr))
 }
 
@@ -227,7 +228,10 @@ const loadScore = function() {
     let scoreArray = localStorage.getItem('scoreObj');
     scoreArray = JSON.parse(scoreArray);
     console.log(scoreArray);
-    scoresArr.push(scoreArray)
+    for (let i = 0; i < scoreArray.length; i++) {
+        scoresArr.push(scoreArray[i]);
+    }
+    
 }
 
 //start game on click
