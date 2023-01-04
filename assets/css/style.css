@@ -63,3 +63,9 @@ th {
     font-size:x-large;
     border: 3px solid pink;
 }
+
+td {
+    font-size: large;
+    border: 3px solid pink;
+    text-align: center;
+}
