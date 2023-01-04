@@ -49,3 +49,17 @@ h2#tellMe{
     margin: 0 auto;
     text-align: center;
 }
+
+
+/* rules governing the score page */
+#tableEl {
+    margin: 0 auto;
+    border: 3px solid lightblue;
+    width: 80%;
+}
+
+
+th {
+    font-size:x-large;
+    border: 3px solid pink;
+}
