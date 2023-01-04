@@ -1,4 +1,9 @@
-
+/* global rule*/ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
 /* header section */
@@ -68,4 +73,16 @@ td {
     font-size: large;
     border: 3px solid pink;
     text-align: center;
+}
+
+#home-page {
+    margin: 20px auto;
+    font-size: x-large;
+    font-weight: bold;
+    width: 80%;
+    text-align: center;
+}
+
+#back-home {
+    color: lightblue;
 }

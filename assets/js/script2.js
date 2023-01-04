@@ -3,7 +3,7 @@ const table = document.querySelector('#tableEl');
 
 // function for add new table rows and data children as html elements.
 
-const createElement = function(obj) {
+let createElement = function(obj) {
     console.log(obj);
 
     // break down the object to single variables.
@@ -33,21 +33,23 @@ const createElement = function(obj) {
 };
 
 
-// save the score object from local host.
+// save the score object from local storage.
 
 const loadScore = function (){
+    // retrieve data from local storage.
     let scoreObj = localStorage.getItem('scoreObj');
-    console.log(scoreObj);
 
+    // parse data. 
     scoreObj = JSON.parse(scoreObj);
-    console.log(scoreObj)
 
-    // for (let i = 0; i < scoreObj.length -1; i++) {
-    //     console.log(scoreObj[i]);
-    //     createElement(scoreObj[i]);
-    // }
+    // create array and push object into it.
+    scoreObjArray = [];
+    scoreObjArray.push(scoreObj);
 
-    createElement(scoreObj);
+    // loop through the array and call the create element function with array objects.
+    for (let i = 0; i < scoreObjArray.length; i++) {
+        createElement(scoreObjArray[i]);
+    }
 };
 
 loadScore();
